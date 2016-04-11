@@ -62,6 +62,8 @@
     <Compile Include="Core\DateTimeExtensions.cs" />
     <Compile Include="Core\DateTimeFormatExtensions.cs" />
     <Compile Include="Core\DateTimeOffsetExtensions.cs" />
+    <Compile Include="Core\DecimalExtensions.cs" />
+    <Compile Include="Core\DelegateExtensions.cs" />
     <Compile Include="Core\TimeZoneExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

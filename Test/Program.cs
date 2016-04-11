@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExtensionMethods.Caching;
+using ExtensionMethods.Core;
 using System.Runtime.Caching;
 
 namespace Test
@@ -11,7 +11,6 @@ namespace Test
     {
         static void Main(string[] args)
         {
-           
         }
     }
 }

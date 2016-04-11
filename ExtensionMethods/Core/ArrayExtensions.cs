@@ -6,157 +6,120 @@ using System.Text;
 
 namespace ExtensionMethods.Core
 {
+    /// <summary>
+    /// 静态集合扩展类
+    /// </summary>
     public static class ArrayExtensions
     {
         #region BinarySearch
         /// <summary>
-        ///     Searches an entire one-dimensional sorted  for a specific element, using the  interface implemented by each
-        ///     element of the  and by the specified object.
+        /// 二分查找
         /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
+        /// <param name="array">被搜索集合</param>
+        /// <param name="value">搜索值</param>
+        /// <returns>查询对象索引位置</returns>
         public static Int32 BinarySearch(this Array array, Object value)
         {
             return Array.BinarySearch(array, value);
         }
 
         /// <summary>
-        ///     Searches a range of elements in a one-dimensional sorted  for a value, using the  interface implemented by
-        ///     each element of the  and by the specified value.
+        /// 二分查找
         /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="index">The starting index of the range to search.</param>
-        /// <param name="length">The length of the range to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
+        /// <param name="array">被搜索集合</param>
+        /// <param name="index">搜索开始索引</param>
+        /// <param name="length">搜索长度</param>
+        /// <param name="value">搜索值</param>
+        /// <returns>查询对象索引位置</returns>
         public static Int32 BinarySearch(this Array array, Int32 index, Int32 length, Object value)
         {
             return Array.BinarySearch(array, index, length, value);
         }
 
         /// <summary>
-        ///     Searches an entire one-dimensional sorted  for a value using the specified  interface.
+        ///  二分查找
         /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or- null to use the  implementation
-        ///     of each element.
-        /// </param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
+        /// <param name="array">被搜索集合</param>
+        /// <param name="value">搜索值</param>
+        /// <param name="comparer">比较接口</param>
+        /// <returns>查询对象索引位置</returns>
         public static Int32 BinarySearch(this Array array, Object value, IComparer comparer)
         {
             return Array.BinarySearch(array, value, comparer);
         }
 
         /// <summary>
-        ///     Searches a range of elements in a one-dimensional sorted  for a value, using the specified  interface.
+        ///  二分查找
         /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="index">The starting index of the range to search.</param>
-        /// <param name="length">The length of the range to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or- null to use the  implementation
-        ///     of each element.
-        /// </param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
+        /// <param name="array">被搜索集合</param>
+        /// <param name="index">搜索开始索引</param>
+        /// <param name="length">搜索长度</param>
+        /// <param name="value">搜索值</param>
+        /// <param name="comparer">比较接口</param>
+        /// <returns>查询对象索引位置</returns>
         public static Int32 BinarySearch(this Array array, Int32 index, Int32 length, Object value, IComparer comparer)
         {
             return Array.BinarySearch(array, index, length, value, comparer);
         }
         #endregion
 
+        #region Copy
         /// <summary>
-        ///     Copies a range of elements from an  starting at the specified source index and pastes them to another
-        ///     starting at the specified destination index.  Guarantees that all changes are undone if the copy does not
-        ///     succeed completely.
+        /// 将数组的部分复制到新的某一部分集合(对复制要求严格，只能是同类型或者源数组类型是目标类型的派生元素类型)
         /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="sourceIndex">A 32-bit integer that represents the index in the  at which copying begins.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="destinationIndex">A 32-bit integer that represents the index in the  at which storing begins.</param>
-        /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
+        /// <param name="sourceArray">源数据</param>
+        /// <param name="sourceIndex">源起始索引</param>
+        /// <param name="destinationArray">目标集合</param>
+        /// <param name="destinationIndex">目标集合赋值开始索引</param>
+        /// <param name="length">复制长度</param>
         public static void ConstrainedCopy(this Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length)
         {
             Array.ConstrainedCopy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
-
-        #region Copy
+       
         /// <summary>
-        ///     Copies a range of elements from an  starting at the first element and pastes them into another  starting at
-        ///     the first element. The length is specified as a 32-bit integer.
+        /// 拷贝数组内容（可装箱，拆箱复制）
         /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
+        /// <param name="sourceArray">源数据</param>
+        /// <param name="destinationArray">目标数据</param>
+        /// <param name="length">复制长度</param>
         public static void Copy(this Array sourceArray, Array destinationArray, Int32 length)
         {
             Array.Copy(sourceArray, destinationArray, length);
         }
 
         /// <summary>
-        ///     Copies a range of elements from an  starting at the specified source index and pastes them to another
-        ///     starting at the specified destination index. The length and the indexes are specified as 32-bit integers.
+        /// 拷贝数组内容（可装箱，拆箱复制）
         /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="sourceIndex">A 32-bit integer that represents the index in the  at which copying begins.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="destinationIndex">A 32-bit integer that represents the index in the  at which storing begins.</param>
-        /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
+        /// <param name="sourceArray">源数据</param>
+        /// <param name="sourceIndex">源起始索引</param>
+        /// <param name="destinationArray">目标数据</param>
+        /// <param name="destinationIndex">目标集合赋值开始索引</param>
+        /// <param name="length">复制长度</param>
         public static void Copy(this Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length)
         {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
 
         /// <summary>
-        ///     Copies a range of elements from an  starting at the first element and pastes them into another  starting at
-        ///     the first element. The length is specified as a 64-bit integer.
+        /// 拷贝数组内容（可装箱，拆箱复制）
         /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="length">
-        ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
-        ///     zero and , inclusive.
-        /// </param>
+        /// <param name="sourceArray">源数据</param>
+        /// <param name="destinationArray">目标数据</param>
+        /// <param name="length">复制长度</param>
         public static void Copy(this Array sourceArray, Array destinationArray, Int64 length)
         {
             Array.Copy(sourceArray, destinationArray, length);
         }
 
         /// <summary>
-        ///     Copies a range of elements from an  starting at the specified source index and pastes them to another
-        ///     starting at the specified destination index. The length and the indexes are specified as 64-bit integers.
+        ///  拷贝数组内容（可装箱，拆箱复制）
         /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="sourceIndex">A 64-bit integer that represents the index in the  at which copying begins.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="destinationIndex">A 64-bit integer that represents the index in the  at which storing begins.</param>
-        /// <param name="length">
-        ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
-        ///     zero and , inclusive.
-        /// </param>
+        /// <param name="sourceArray">源数据</param>
+        /// <param name="sourceIndex">源起始索引</param>
+        /// <param name="destinationArray">目标数据</param>
+        /// <param name="destinationIndex">目标集合赋值开始索引</param>
+        /// <param name="length">复制长度</param>
         public static void Copy(this Array sourceArray, Int64 sourceIndex, Array destinationArray, Int64 destinationIndex, Int64 length)
         {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
@@ -165,20 +128,20 @@ namespace ExtensionMethods.Core
 
         #region Clear
         /// <summary>
-        ///     Sets a range of elements in the  to zero, to false, or to null, depending on the element type.
+        /// 将指定位置的集合清空(至0/false/null)
         /// </summary>
-        /// <param name="array">The  whose elements need to be cleared.</param>
-        /// <param name="index">The starting index of the range of elements to clear.</param>
-        /// <param name="length">The number of elements to clear.</param>
+        /// <param name="array">集合</param>
+        /// <param name="index">开始索引</param>
+        /// <param name="length">长度</param>
         public static void Clear(this Array array, Int32 index, Int32 length)
         {
             Array.Clear(array, index, length);
         }
 
         /// <summary>
-        ///     An Array extension method that clears the array.
+        /// 集合清空
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
+        /// <param name="this"></param>
         public static void ClearAll(this Array @this)
         {
             Array.Clear(@this, 0, @this.Length);
@@ -186,49 +149,31 @@ namespace ExtensionMethods.Core
         #endregion
 
         #region IndexOf
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the first occurrence within the entire one-
-        ///     dimensional .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <returns>
-        ///     The index of the first occurrence of  within the entire , if found; otherwise, the lower bound of the array
-        ///     minus 1.
-        /// </returns>
+        /// <summary>获取对象所在集合的索引</summary>
+        /// <param name="array">搜索集合</param>
+        /// <param name="value">搜索对象</param>
+        /// <returns>对象位置</returns>
         public static Int32 IndexOf(this Array array, Object value)
         {
             return Array.IndexOf(array, value);
         }
 
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the first occurrence within the range of elements
-        ///     in the one-dimensional  that extends from the specified index to the last element.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <param name="startIndex">The starting index of the search. 0 (zero) is valid in an empty array.</param>
-        /// <returns>
-        ///     The index of the first occurrence of  within the range of elements in  that extends from  to the last element,
-        ///     if found; otherwise, the lower bound of the array minus 1.
-        /// </returns>
+        /// <summary>获取对象所在集合的索引</summary>
+        /// <param name="array">搜索集合</param>
+        /// <param name="value">搜索对象</param>
+        /// <param name="startIndex">搜索起始位置</param>
+        /// <returns>对象位置</returns>
         public static Int32 IndexOf(this Array array, Object value, Int32 startIndex)
         {
             return Array.IndexOf(array, value, startIndex);
         }
 
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the first occurrence within the range of elements
-        ///     in the one-dimensional  that starts at the specified index and contains the specified number of elements.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <param name="startIndex">The starting index of the search. 0 (zero) is valid in an empty array.</param>
-        /// <param name="count">The number of elements in the section to search.</param>
-        /// <returns>
-        ///     The index of the first occurrence of  within the range of elements in  that starts at  and contains the
-        ///     number of elements specified in , if found; otherwise, the lower bound of the array minus 1.
-        /// </returns>
+        /// <summary>获取对象所在集合的索引</summary>
+        /// <param name="array">搜索集合</param>
+        /// <param name="value">搜索对象</param>
+        /// <param name="startIndex">搜索起始位置</param>
+        /// <param name="count">搜索长度</param>
+        /// <returns>对象位置</returns>
         public static Int32 IndexOf(this Array array, Object value, Int32 startIndex, Int32 count)
         {
             return Array.IndexOf(array, value, startIndex, count);

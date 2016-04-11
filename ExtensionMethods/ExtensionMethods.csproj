@@ -68,6 +68,7 @@
     <Compile Include="Core\EnumExtensions.cs" />
     <Compile Include="Core\EventHandlerExtensions.cs" />
     <Compile Include="Core\GuidExtensions.cs" />
+    <Compile Include="Core\Int32Extensions.cs" />
     <Compile Include="Core\TimeZoneExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

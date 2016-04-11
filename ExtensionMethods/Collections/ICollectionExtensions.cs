@@ -8,13 +8,13 @@ namespace ExtensionMethods.Collections
     public static class ICollectionExtensions
     {
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that adds only if the value satisfies the predicate.
+        /// 当值满足添加是添加到集合
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>true if it succeeds, false if it fails.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="predicate">添加值验证</param>
+        /// <param name="value">添加值</param>
+        /// <returns>成功true,失败false</returns>
         public static bool AddIf<T>(this ICollection<T> @this, Func<T, bool> predicate, T value)
         {
             if (predicate(value))
@@ -27,12 +27,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that add value if the ICollection doesn't contains it already.
+        /// 当值不在集合中添加
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>true if it succeeds, false if it fails.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="value">添加值</param>
+        /// <returns>成功true,失败false</returns>
         public static bool AddIfNotContains<T>(this ICollection<T> @this, T value)
         {
             if (!@this.Contains(value))
@@ -45,11 +45,11 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that adds a range to 'values'.
+        /// 将数组添加到集合中
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="values">添加数组</param>
         public static void AddRange<T>(this ICollection<T> @this, params T[] values)
         {
             foreach (T value in values)
@@ -59,13 +59,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that adds a collection of objects to the end of this collection only
-        ///     for value who satisfies the predicate.
+        /// 将数组中满足要求的值添加到集合中
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="predicate">添加值验证</param>
+        /// <param name="values">添加数组</param>
         public static void AddRangeIf<T>(this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
         {
             foreach (T value in values)
@@ -78,11 +77,11 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that adds a range of values that's not already in the ICollection.
+        /// 当数组中值不在集合中添加
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="values">添加数组</param>
         public static void AddRangeIfNotContains<T>(this ICollection<T> @this, params T[] values)
         {
             foreach (T value in values)
@@ -95,12 +94,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that query if '@this' contains all values.
+        /// 值是否都在集合中
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        /// <returns>true if it succeeds, false if it fails.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="values">验证数组</param>
+        /// <returns>都存在true,有不存在的值false</returns>
         public static bool ContainsAll<T>(this ICollection<T> @this, params T[] values)
         {
             foreach (T value in values)
@@ -115,12 +114,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that query if '@this' contains any value.
+        /// 值是否有在集合中
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        /// <returns>true if it succeeds, false if it fails.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="values">验证数组</param>
+        /// <returns>存在true,都不存在false</returns>
         public static bool ContainsAny<T>(this ICollection<T> @this, params T[] values)
         {
             foreach (T value in values)
@@ -135,56 +134,56 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that query if the collection is empty.
+        /// 集合是否为空
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if empty&lt; t&gt;, false if not.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <returns>空true,非空false</returns>
         public static bool IsEmpty<T>(this ICollection<T> @this)
         {
             return @this.Count == 0;
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that query if the collection is not empty.
+        /// 集合是否非空
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if not empty&lt; t&gt;, false if not.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <returns>非空true,空false</returns>
         public static bool IsNotEmpty<T>(this ICollection<T> @this)
         {
             return @this.Count != 0;
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that queries if the collection is not (null or is empty).
+        /// 集合是否为非null非空
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if the collection is not (null or empty), false if not.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <returns>非空/非null true,空false</returns>
         public static bool IsNotNullOrEmpty<T>(this ICollection<T> @this)
         {
             return @this != null && @this.Count != 0;
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that queries if the collection is null or is empty.
+        /// 集合是否是null或空
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if null or empty&lt; t&gt;, false if not.</returns>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <returns>空/null true,非空false</returns>
         public static bool IsNullOrEmpty<T>(this ICollection<T> @this)
         {
             return @this == null || @this.Count == 0;
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes if.
+        /// 值满足条件则删除
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="predicate">The predicate.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="value">被移除值</param>
+        /// <param name="predicate">验证方法</param>
         public static void RemoveIf<T>(this ICollection<T> @this, T value, Func<T, bool> predicate)
         {
             if (predicate(value))
@@ -194,11 +193,11 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes if contains.
+        /// 移除在集合中的值
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="value">The value.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="value">被移除值</param>
         public static void RemoveIfContains<T>(this ICollection<T> @this, T value)
         {
             if (@this.Contains(value))
@@ -208,11 +207,11 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes the range.
+        /// 批量移除值
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="values">被移除值集合</param>
         public static void RemoveRange<T>(this ICollection<T> @this, params T[] values)
         {
             foreach (T value in values)
@@ -222,12 +221,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes range item that satisfy the predicate.
+        /// 批量移除满足条件的值
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="predicate">验证方法</param>
+        /// <param name="values">被移除值集合</param>
         public static void RemoveRangeIf<T>(this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
         {
             foreach (T value in values)
@@ -240,11 +239,11 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes the range if contains.
+        /// 批量移除存在集合中的值
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="values">被移除值集合</param>
         public static void RemoveRangeIfContains<T>(this ICollection<T> @this, params T[] values)
         {
             foreach (T value in values)
@@ -257,11 +256,11 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes value that satisfy the predicate.
+        /// 批量移除满足条件的值与RemoveRangeIf效果相同
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="predicate">The predicate.</param>
+        /// <typeparam name="T">集合类型</typeparam>
+        /// <param name="this">ICollection</param>
+        /// <param name="predicate">验证方法</param>
         public static void RemoveWhere<T>(this ICollection<T> @this, Func<T, bool> predicate)
         {
             List<T> list = @this.Where(predicate).ToList();

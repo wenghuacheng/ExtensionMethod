@@ -8,12 +8,12 @@ namespace ExtensionMethods.Caching
 {
     public static partial class ExtensionMemoryCache
     {
-        /// <summary>A MemoryCache extension method that adds an or get existing.</summary>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="cache">The cache to act on.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>MemoryCache类的扩展添加或替换缓存值</summary>
+        /// <typeparam name="TValue">存储值类型</typeparam>
+        /// <param name="cache">MemoryCache</param>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        /// <returns>值</returns>
         public static TValue AddOrGetExisting<TValue>(this MemoryCache cache, string key, TValue value)
         {
             object item = cache.AddOrGetExisting(key, value, new CacheItemPolicy()) ?? value;
@@ -21,12 +21,12 @@ namespace ExtensionMethods.Caching
             return (TValue)item;
         }
 
-        /// <summary>A MemoryCache extension method that adds an or get existing.</summary>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="cache">The cache to act on.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>MemoryCache类的扩展添加或替换缓存值</summary>
+        /// <typeparam name="TValue">存储值类型</typeparam>
+        /// <param name="cache">MemoryCache</param>
+        /// <param name="key">键</param>
+        /// <param name="valueFactory">值处理方法(处理值再进行保存)</param>
+        /// <returns>值</returns>
         public static TValue AddOrGetExisting<TValue>(this MemoryCache cache, string key, Func<string, TValue> valueFactory)
         {
             var lazy = new Lazy<TValue>(() => valueFactory(key));
@@ -36,14 +36,14 @@ namespace ExtensionMethods.Caching
             return item.Value;
         }
 
-        /// <summary>A MemoryCache extension method that adds an or get existing.</summary>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="cache">The cache to act on.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <param name="policy">The policy.</param>
-        /// <param name="regionName">(Optional) name of the region.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>MemoryCache类的扩展添加或替换缓存值</summary>
+        /// <typeparam name="TValue">存储值类型</typeparam>
+        /// <param name="cache">MemoryCache</param>
+        /// <param name="key">键</param>
+        /// <param name="valueFactory">值处理方法(处理值再进行保存)</param>
+        /// <param name="policy">缓存项的一组逐出和过期详细信息</param>
+        /// <param name="regionName">缓存中的一个可用来添加缓存项的命名区域</param>
+        /// <returns>值</returns>
         public static TValue AddOrGetExisting<TValue>(this MemoryCache cache, string key, Func<string, TValue> valueFactory, CacheItemPolicy policy, string regionName = null)
         {
             var lazy = new Lazy<TValue>(() => valueFactory(key));
@@ -53,14 +53,14 @@ namespace ExtensionMethods.Caching
             return item.Value;
         }
 
-        /// <summary>A MemoryCache extension method that adds an or get existing.</summary>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="cache">The cache to act on.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <param name="absoluteExpiration">The policy.</param>
-        /// <param name="regionName">(Optional) name of the region.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>MemoryCache类的扩展添加或替换缓存值</summary>
+        /// <typeparam name="TValue">存储值类型</typeparam>
+        /// <param name="cache">MemoryCache</param>
+        /// <param name="key">键</param>
+        /// <param name="valueFactory">值处理方法(处理值再进行保存)</param>
+        /// <param name="absoluteExpiration">缓存过期时间</param>
+        /// <param name="regionName">缓存中的一个可用来添加缓存项的命名区域</param>
+        /// <returns>值</returns>
         public static TValue AddOrGetExisting<TValue>(this MemoryCache cache, string key, Func<string, TValue> valueFactory, DateTimeOffset absoluteExpiration, string regionName = null)
         {
             var lazy = new Lazy<TValue>(() => valueFactory(key));

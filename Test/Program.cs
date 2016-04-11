@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExtensionMethods.Core;
+using ExtensionMethods.Caching;
+using System.Runtime.Caching;
 
 namespace Test
 {
@@ -10,7 +11,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            DateTime dt = new DateTime();
+           
         }
     }
 }

@@ -9,14 +9,14 @@ namespace ExtensionMethods.Caching
 {
     public static partial class ExtensionMemoryCache
     {
-        /// <summary>A TKey extension method that from cache.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="cache">The cache.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>对象的缓存扩展添加或替换缓存值</summary>
+        /// <typeparam name="T">对象类型</typeparam>
+        /// <typeparam name="TValue">值类型</typeparam>
+        /// <param name="this">对象</param>
+        /// <param name="cache">MemoryCache</param>
+        /// <param name="key">键</param>
+        /// <param name="value">缓存值</param>
+        /// <returns>返回值</returns>
         public static TValue FromCache<T, TValue>(this T @this, MemoryCache cache, string key, TValue value)
         {
             object item = cache.AddOrGetExisting(key, value, new CacheItemPolicy()) ?? value;
@@ -24,26 +24,26 @@ namespace ExtensionMethods.Caching
             return (TValue)item;
         }
 
-        /// <summary>A TKey extension method that from cache.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>对象的缓存扩展默认缓存添加或替换缓存值</summary>
+        /// <typeparam name="T">对象类型</typeparam>
+        /// <typeparam name="TValue">值类型</typeparam>
+        /// <param name="this">对象</param>
+        /// <param name="key">键</param>
+        /// <param name="value">缓存值</param>
+        /// <returns>返回值</returns>
         public static TValue FromCache<T, TValue>(this T @this, string key, TValue value)
         {
             return @this.FromCache(MemoryCache.Default, key, value);
         }
 
-        /// <summary>A TKey extension method that from cache.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="cache">The cache.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>对象的缓存扩展添加或替换缓存值</summary>
+        /// <typeparam name="T">对象类型</typeparam>
+        /// <typeparam name="TValue">值类型</typeparam>
+        /// <param name="this">对象</param>
+        /// <param name="cache">缓存</param>
+        /// <param name="key">键</param>
+        /// <param name="valueFactory">缓存值</param>
+        /// <returns>返回值</returns>
         public static TValue FromCache<T, TValue>(this T @this, MemoryCache cache, string key, Expression<Func<T, TValue>> valueFactory)
         {
             var lazy = new Lazy<TValue>(() => valueFactory.Compile()(@this));
@@ -51,41 +51,16 @@ namespace ExtensionMethods.Caching
             return item.Value;
         }
 
-        /// <summary>A TKey extension method that from cache.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="key">The key.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <returns>A TValue.</returns>
+        /// <summary>对象的缓存扩展添加或替换缓存值</summary>
+        /// <typeparam name="T">对象类型</typeparam>
+        /// <typeparam name="TValue">值类型</typeparam>
+        /// <param name="this">对象</param>
+        /// <param name="key">键</param>
+        /// <param name="valueFactory">值处理</param>
+        /// <returns>返回值</returns>
         public static TValue FromCache<T, TValue>(this T @this, string key, Expression<Func<T, TValue>> valueFactory)
         {
             return @this.FromCache(MemoryCache.Default, key, valueFactory);
-        }
-
-        /// <summary>A TKey extension method that from cache.</summary>
-        /// <typeparam name="TKey">Type of the key.</typeparam>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <returns>A TValue.</returns>
-        public static TValue FromCache<TKey, TValue>(this TKey @this, Expression<Func<TKey, TValue>> valueFactory)
-        {
-            string key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
-            return @this.FromCache(MemoryCache.Default, key, valueFactory);
-        }
-
-        /// <summary>A TKey extension method that from cache.</summary>
-        /// <typeparam name="TKey">Type of the key.</typeparam>
-        /// <typeparam name="TValue">Type of the value.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="cache">The cache.</param>
-        /// <param name="valueFactory">The value factory.</param>
-        /// <returns>A TValue.</returns>
-        public static TValue FromCache<TKey, TValue>(this TKey @this, MemoryCache cache, Expression<Func<TKey, TValue>> valueFactory)
-        {
-            string key = string.Concat("Z.Caching.FromCache;", typeof(TKey).FullName, valueFactory.ToString());
-            return @this.FromCache(cache, key, valueFactory);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ExtensionMethods.Compression.GZip
     {
         #region CreateZip
         /// <summary>
-        ///     A FileInfo extension method that creates a zip file.
+        /// 将文件压缩
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         public static void CreateGZip(this FileInfo @this)
@@ -29,10 +29,10 @@ namespace ExtensionMethods.Compression.GZip
         }
 
         /// <summary>
-        ///     A FileInfo extension method that creates a zip file.
+        /// 将文件压缩
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="destination">Destination for the zip.</param>
+        /// <param name="this"></param>
+        /// <param name="destination">压缩文件完整路径</param>
         public static void CreateGZip(this FileInfo @this, string destination)
         {
             using (FileStream originalFileStream = @this.OpenRead())
@@ -48,10 +48,10 @@ namespace ExtensionMethods.Compression.GZip
         }
 
         /// <summary>
-        ///     A FileInfo extension method that creates a zip file.
+        /// 将文件压缩
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="destination">Destination for the zip.</param>
+        /// <param name="this"></param>
+        /// <param name="destination">目标压缩文件</param>
         public static void CreateGZip(this FileInfo @this, FileInfo destination)
         {
             using (FileStream originalFileStream = @this.OpenRead())
@@ -69,10 +69,9 @@ namespace ExtensionMethods.Compression.GZip
 
         #region ExtractGZipToDirectory
         /// <summary>
-        ///     A FileInfo extension method that extracts the g zip to directory described by
-        ///     @this.
+        /// 将文件解压
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
+        /// <param name="this"></param>
         public static void ExtractGZipToDirectory(this FileInfo @this)
         {
             using (FileStream originalFileStream = @this.OpenRead())
@@ -90,11 +89,10 @@ namespace ExtensionMethods.Compression.GZip
         }
 
         /// <summary>
-        ///     A FileInfo extension method that extracts the g zip to directory described by
-        ///     @this.
+        /// 将文件解压
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="destination">Destination for the.</param>
+        /// <param name="this"></param>
+        /// <param name="destination">解压文件路径</param>
         public static void ExtractGZipToDirectory(this FileInfo @this, string destination)
         {
             using (FileStream originalFileStream = @this.OpenRead())
@@ -110,11 +108,10 @@ namespace ExtensionMethods.Compression.GZip
         }
 
         /// <summary>
-        ///     A FileInfo extension method that extracts the g zip to directory described by
-        ///     @this.
+        /// 将文件解压
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="destination">Destination for the.</param>
+        /// <param name="this"></param>
+        /// <param name="destination">解压文件</param>
         public static void ExtractGZipToDirectory(this FileInfo @this, FileInfo destination)
         {
             using (FileStream originalFileStream = @this.OpenRead())

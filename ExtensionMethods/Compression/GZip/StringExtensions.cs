@@ -10,10 +10,10 @@ namespace ExtensionMethods.Compression.GZip
     public static class StringExtensions
     {
         /// <summary>
-        ///     A string extension method that compress the given string to GZip byte array.
+        /// 将String转为字节数组
         /// </summary>
-        /// <param name="this">The stringToCompress to act on.</param>
-        /// <returns>The string compressed into a GZip byte array.</returns>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static byte[] CompressGZip(this string @this)
         {
             byte[] stringAsBytes = Encoding.Default.GetBytes(@this);
@@ -29,11 +29,11 @@ namespace ExtensionMethods.Compression.GZip
         }
 
         /// <summary>
-        ///     A string extension method that compress the given string to GZip byte array.
+        /// 将String按指定编码转为字节数组
         /// </summary>
-        /// <param name="this">The stringToCompress to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>The string compressed into a GZip byte array.</returns>
+        /// <param name="this"></param>
+        /// <param name="encoding">编码</param>
+        /// <returns></returns>
         public static byte[] CompressGZip(this string @this, Encoding encoding)
         {
             byte[] stringAsBytes = encoding.GetBytes(@this);

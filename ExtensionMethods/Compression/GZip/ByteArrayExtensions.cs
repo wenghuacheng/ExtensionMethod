@@ -10,10 +10,10 @@ namespace ExtensionMethods.Compression.GZip
     public static class ByteArrayExtensions
     {
         /// <summary>
-        ///     A byte[] extension method that decompress the byte array gzip to string.
+        /// 将字节数组转为String
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The byte array gzip to string.</returns>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static string DecompressGZip(this byte[] @this)
         {
             const int bufferSize = 1024;
@@ -39,11 +39,11 @@ namespace ExtensionMethods.Compression.GZip
         }
 
         /// <summary>
-        ///     A byte[] extension method that decompress the byte array gzip to string.
+        /// 将字节数组转为指定编码String
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>The byte array gzip to string.</returns>
+        /// <param name="this"></param>
+        /// <param name="encoding">编码</param>
+        /// <returns></returns>
         public static string DecompressGZip(this byte[] @this, Encoding encoding)
         {
             const int bufferSize = 1024;

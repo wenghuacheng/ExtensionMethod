@@ -65,6 +65,9 @@
     <Compile Include="Core\DecimalExtensions.cs" />
     <Compile Include="Core\DelegateExtensions.cs" />
     <Compile Include="Core\DoubleExtensions.cs" />
+    <Compile Include="Core\EnumExtensions.cs" />
+    <Compile Include="Core\EventHandlerExtensions.cs" />
+    <Compile Include="Core\GuidExtensions.cs" />
     <Compile Include="Core\TimeZoneExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

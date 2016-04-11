@@ -9,10 +9,10 @@ namespace ExtensionMethods.Collections
     public static class NameValueCollectionExtensions
     {
         /// <summary>
-        ///     A NameValueCollection extension method that converts the @this to a dictionary.
+        /// 将NameValueCollection转换为IDictionary
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>@this as an IDictionary&lt;string,object&gt;</returns>
+        /// <param name="this">NameValueCollection</param>
+        /// <returns></returns>
         public static IDictionary<string, object> ToDictionary(this NameValueCollection @this)
         {
             var dict = new Dictionary<string, object>();

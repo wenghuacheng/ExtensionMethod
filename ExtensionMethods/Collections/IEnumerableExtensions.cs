@@ -8,12 +8,12 @@ namespace ExtensionMethods.Collections
     public static class IEnumerableExtensions
     {
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that query if '@this' contains all.
+        /// 数组是否包含所有的值
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        /// <returns>true if it succeeds, false if it fails.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <param name="values">验证值集合</param>
+        /// <returns></returns>
         public static bool ContainsAll<T>(this IEnumerable<T> @this, params T[] values)
         {
             T[] list = @this.ToArray();
@@ -29,12 +29,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that query if '@this' contains any.
+        /// 数组是否包含值
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        /// <returns>true if it succeeds, false if it fails.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <param name="values">验证值集合</param>
+        /// <returns></returns>
         public static bool ContainsAny<T>(this IEnumerable<T> @this, params T[] values)
         {
             T[] list = @this.ToArray();
@@ -50,12 +50,12 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     Enumerates for each in this collection.
+        /// 遍历集合
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="action">The action.</param>
-        /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <param name="action">针对每个对象的操作</param>
+        /// <returns></returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
             T[] array = @this.ToArray();
@@ -66,11 +66,11 @@ namespace ExtensionMethods.Collections
             return array;
         }
 
-        /// <summary>Enumerates for each in this collection.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="action">The action.</param>
-        /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
+        /// <summary>遍历集合</summary>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <param name="action">针对每个对象的操作并传入对象的索引</param>
+        /// <returns></returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
             T[] array = @this.ToArray();
@@ -84,96 +84,66 @@ namespace ExtensionMethods.Collections
         }
 
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that query if 'collection' is empty.
+        /// 集合是否为空
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The collection to act on.</param>
-        /// <returns>true if empty, false if not.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <returns></returns>
         public static bool IsEmpty<T>(this IEnumerable<T> @this)
         {
             return !@this.Any();
         }
 
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that queries if a not is empty.
+        /// 集合是否不为空
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The collection to act on.</param>
-        /// <returns>true if a not is t>, false if not.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <returns></returns>
         public static bool IsNotEmpty<T>(this IEnumerable<T> @this)
         {
             return @this.Any();
         }
 
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that queries if a not null or is empty.
+        /// 集合是否不为空与null
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The collection to act on.</param>
-        /// <returns>true if a not null or is t>, false if not.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <returns></returns>
         public static bool IsNotNullOrEmpty<T>(this IEnumerable<T> @this)
         {
             return @this != null && @this.Any();
         }
 
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that queries if a null or is empty.
+        /// 集合是否为空或null
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The collection to act on.</param>
-        /// <returns>true if a null or is t>, false if not.</returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this)
         {
             return @this == null || !@this.Any();
         }
 
         /// <summary>
-        ///     Concatenates all the elements of a IEnumerable, using the specified separator between each element.
+        /// 将集合拼接为一个字符串
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">An IEnumerable that contains the elements to concatenate.</param>
-        /// <param name="separator">
-        ///     The string to use as a separator. separator is included in the returned string only if
-        ///     value has more than one element.
-        /// </param>
-        /// <returns>
-        ///     A string that consists of the elements in value delimited by the separator string. If value is an empty array,
-        ///     the method returns String.Empty.
-        /// </returns>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <param name="separator">分隔符</param>
+        /// <returns></returns>
         public static string StringJoin<T>(this IEnumerable<T> @this, string separator)
         {
             return string.Join(separator, @this);
         }
 
-        /// <summary>
-        ///     Concatenates all the elements of a IEnumerable, using the specified separator between
-        ///     each element.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="separator">
-        ///     The string to use as a separator. separator is included in the
-        ///     returned string only if value has more than one element.
-        /// </param>
-        /// <returns>
-        ///     A string that consists of the elements in value delimited by the separator string. If
-        ///     value is an empty array, the method returns String.Empty.
-        /// </returns>
-        public static string StringJoin<T>(this IEnumerable<T> @this, char separator)
-        {
-            return string.Join(separator.ToString(), @this);
-        }
-
-
-
         #region IEnumerable<IEnumerable<T>>
-        /// <summary>Enumerates merge inner enumerable in this collection.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>
-        ///     An enumerator that allows foreach to be used to process merge inner enumerable in
-        ///     this collection.
-        /// </returns>
+        /// <summary>集合合并(其中所有的值)</summary>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <returns </returns>
         public static IEnumerable<T> MergeInnerEnumerable<T>(this IEnumerable<IEnumerable<T>> @this)
         {
             List<IEnumerable<T>> listItem = @this.ToList();
@@ -188,13 +158,10 @@ namespace ExtensionMethods.Collections
             return list;
         }
 
-        /// <summary>Enumerates merge distinct inner enumerable in this collection.</summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>
-        ///     An enumerator that allows foreach to be used to process merge distinct inner
-        ///     enumerable in this collection.
-        /// </returns>
+        /// <summary>集合合并(仅包含集合的并集)</summary>
+        /// <typeparam name="T">数组类型</typeparam>
+        /// <param name="this">IEnumerable</param>
+        /// <returns></returns>
         public static IEnumerable<T> MergeDistinctInnerEnumerable<T>(this IEnumerable<IEnumerable<T>> @this)
         {
             List<IEnumerable<T>> listItem = @this.ToList();

@@ -9,10 +9,10 @@ namespace ExtensionMethods.Collections
     public static class IDictionaryStringObjectExtensions
     {
         /// <summary>
-        ///     An IDictionary&lt;string,object&gt; extension method that converts the @this to an expando.
+        /// 将IDictionary转换为动态类型
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>@this as an ExpandoObject.</returns>
+        /// <param name="this">IDictionary</param>
+        /// <returns>ExpandoObject</returns>
         public static ExpandoObject ToExpando(this IDictionary<string, object> @this)
         {
             var expando = new ExpandoObject();

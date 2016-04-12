@@ -8,10 +8,8 @@ namespace ExtensionMethods.Core
     public static class EventHandlerExtensions
     {
         /// <summary>
-        ///     An EventHandler extension method that raises the event event.
+        /// 触发事件
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="sender">Source of the event.</param>
         public static void RaiseEvent(this EventHandler @this, object sender)
         {
             if (@this != null)
@@ -21,11 +19,8 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     An EventHandler extension method that raises.
+        /// 触发事件
         /// </summary>
-        /// <param name="handler">The handler to act on.</param>
-        /// <param name="sender">Source of the event.</param>
-        /// <param name="e">Event information.</param>
         public static void Raise(this EventHandler handler, object sender, EventArgs e)
         {
             if (handler != null)
@@ -33,11 +28,8 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     An EventHandler&lt;TEventArgs&gt; extension method that raises the event event.
+        /// 触发事件
         /// </summary>
-        /// <typeparam name="TEventArgs">Type of the event arguments.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="sender">Source of the event.</param>
         public static void RaiseEvent<TEventArgs>(this EventHandler<TEventArgs> @this, object sender) where TEventArgs : EventArgs
         {
             if (@this != null)
@@ -47,12 +39,8 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     An EventHandler&lt;TEventArgs&gt; extension method that raises the event event.
+        /// 触发事件
         /// </summary>
-        /// <typeparam name="TEventArgs">Type of the event arguments.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="sender">Source of the event.</param>
-        /// <param name="e">Event information to send to registered event handlers.</param>
         public static void RaiseEvent<TEventArgs>(this EventHandler<TEventArgs> @this, object sender, TEventArgs e) where TEventArgs : EventArgs
         {
             if (@this != null)

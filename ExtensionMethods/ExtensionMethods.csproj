@@ -77,6 +77,7 @@
     <Compile Include="IO\DirectoryInfoIEnumerableExtensions.cs" />
     <Compile Include="IO\FileInfoExtensions.cs" />
     <Compile Include="IO\FileInfoIEnumerableExtensions.cs" />
+    <Compile Include="IO\StreamExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

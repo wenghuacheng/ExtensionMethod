@@ -73,11 +73,14 @@
     <Compile Include="Core\ObjectExtensions.cs" />
     <Compile Include="Core\StringExtensions.cs" />
     <Compile Include="Drawing\ImageExtensions.cs" />
+    <Compile Include="IO\DirectoryInfoExtensions.cs" />
+    <Compile Include="IO\DirectoryInfoIEnumerableExtensions.cs" />
+    <Compile Include="IO\FileInfoExtensions.cs" />
+    <Compile Include="IO\FileInfoIEnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="IO\" />
     <Folder Include="Net\" />
     <Folder Include="Reflection\" />
     <Folder Include="Serialization\" />

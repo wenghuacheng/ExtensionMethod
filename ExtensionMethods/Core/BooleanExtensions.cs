@@ -8,10 +8,8 @@ namespace ExtensionMethods.Core
     public static class BooleanExtensions
     {
         /// <summary>
-        ///     A bool extension method that execute an Action if the value is false.
+        /// false时执行的操作
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="action">The action to execute.</param>
         public static void IfFalse(this bool @this, Action action)
         {
             if (!@this)
@@ -21,10 +19,8 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A bool extension method that execute an Action if the value is true.
+        /// true时执行的操作
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="action">The action to execute.</param>
         public static void IfTrue(this bool @this, Action action)
         {
             if (@this)
@@ -34,25 +30,11 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A bool extension method that convert this object into a binary representation.
+        /// 将bool值转换为字节
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>A binary represenation of this object.</returns>
         public static byte ToBinary(this bool @this)
         {
             return Convert.ToByte(@this);
-        }
-
-        /// <summary>
-        ///     A bool extension method that show the trueValue when the @this value is true; otherwise show the falseValue.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="trueValue">The true value to be returned if the @this value is true.</param>
-        /// <param name="falseValue">The false value to be returned if the @this value is false.</param>
-        /// <returns>A string that represents of the current boolean value.</returns>
-        public static string ToString(this bool @this, string trueValue, string falseValue)
-        {
-            return @this ? trueValue : falseValue;
         }
     }
 }

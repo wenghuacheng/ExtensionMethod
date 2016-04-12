@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -276,5 +278,156 @@ namespace ExtensionMethods.Core
             return HttpUtility.UrlPathEncode(str);
         }
         #endregion
+
+        /// <summary>
+        /// 将字符串通过Base64解码
+        /// </summary>
+        public static string DecodeBase64(this string @this)
+        {
+            return Encoding.ASCII.GetString(Convert.FromBase64String(@this));
+        }
+
+        /// <summary>
+        /// 将字符串转为Base64编码
+        /// </summary>
+        public static string EncodeBase64(this string @this)
+        {
+            return Convert.ToBase64String(Activator.CreateInstance<ASCIIEncoding>().GetBytes(@this));
+        }
+
+        /// <summary>
+        /// 解密
+        /// </summary>
+        public static string DecryptRSA(this string @this, string key)
+        {
+            var cspp = new CspParameters { KeyContainerName = key };
+            var rsa = new RSACryptoServiceProvider(cspp) { PersistKeyInCsp = true };
+            string[] decryptArray = @this.Split(new[] { "-" }, StringSplitOptions.None);
+            byte[] decryptByteArray = Array.ConvertAll(decryptArray, (s => Convert.ToByte(byte.Parse(s, NumberStyles.HexNumber))));
+            byte[] bytes = rsa.Decrypt(decryptByteArray, true);
+
+            return Encoding.UTF8.GetString(bytes);
+        }
+
+        /// <summary>
+        /// 加密
+        /// </summary>
+        public static string EncryptRSA(this string @this, string key)
+        {
+            var cspp = new CspParameters { KeyContainerName = key };
+            var rsa = new RSACryptoServiceProvider(cspp) { PersistKeyInCsp = true };
+            byte[] bytes = rsa.Encrypt(Encoding.UTF8.GetBytes(@this), true);
+
+            return BitConverter.ToString(bytes);
+        }
+
+        /// <summary>
+        /// XML转码
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <returns>A string.</returns>
+        public static string EscapeXml(this string @this)
+        {
+            return @this.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
+        }
+
+        /// <summary>
+        /// 字符串为空返回默认值
+        /// </summary>
+        public static string IfEmpty(this string value, string defaultValue)
+        {
+            return (!value.IsNullOrWhiteSpace() ? value : defaultValue);
+        }
+
+        /// <summary>
+        /// 生成重复字符串
+        /// </summary>
+        public static string Repeat(this string @this, int repeatCount)
+        {
+            if (@this.Length == 1)
+            {
+                return new string(@this[0], repeatCount);
+            }
+
+            var sb = new StringBuilder(repeatCount * @this.Length);
+            while (repeatCount-- > 0)
+            {
+                sb.Append(@this);
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// 移除符合条件的字符
+        /// </summary>
+        public static string RemoveWhere(this string @this, Func<char, bool> predicate)
+        {
+            return new string(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
+        }
+
+        /// <summary>
+        /// 翻转字符串
+        /// </summary>
+        public static string Reverse(this string @this)
+        {
+            if (@this.Length <= 1)
+            {
+                return @this;
+            }
+
+            char[] chars = @this.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
+        }
+
+
+        /// <summary>
+        /// 转为ASCII字节数组
+        /// </summary>
+        public static byte[] ToByteArray(this string @this)
+        {
+            Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
+            return encoding.GetBytes(@this);
+        }
+
+        /// <summary>
+        /// 转为枚举类型
+        /// </summary>
+        public static T ToEnum<T>(this string @this)
+        {
+            Type enumType = typeof(T);
+            return (T)Enum.Parse(enumType, @this);
+        }
+
+        /// <summary>
+        /// 截断字符串，超过的长度显示"...";
+        /// </summary>
+        public static string Truncate(this string @this, int maxLength)
+        {
+            const string suffix = "...";
+
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
+
+            int strLength = maxLength - suffix.Length;
+            return @this.Substring(0, strLength) + suffix;
+        }
+
+        /// <summary>
+        /// 截断字符串，超过的长度显示suffix中字符;
+        /// </summary>
+        public static string Truncate(this string @this, int maxLength, string suffix)
+        {
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
+
+            int strLength = maxLength - suffix.Length;
+            return @this.Substring(0, strLength) + suffix;
+        }
     }
 }

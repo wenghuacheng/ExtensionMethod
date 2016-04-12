@@ -71,7 +71,6 @@
     <Compile Include="Core\Int32Extensions.cs" />
     <Compile Include="Core\ObjectConvertExtensions.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
-    <Compile Include="Core\TimeZoneExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

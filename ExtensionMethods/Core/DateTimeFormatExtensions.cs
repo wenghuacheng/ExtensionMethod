@@ -8,179 +8,139 @@ namespace ExtensionMethods.Core
 {
     public static class DateTimeFormatExtensions
     {
-        #region FullDate
+        #region F 2005年11月5日 14:23:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a full date time string.
+        /// 2005年11月5日 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToFullDateTimeString(this DateTime @this)
         {
             return @this.ToString("F", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a full date time string.
+        /// 2005年11月5日 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToFullDateTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("F", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a full date time string.
+        /// 2005年11月5日 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToFullDateTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("F", culture);
         }
         #endregion
 
-        #region LongDateShortTime
+        #region f 2005年11月5日 14:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long date short time string.
+        /// 2005年11月5日 14:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongDateShortTimeString(this DateTime @this)
         {
             return @this.ToString("f", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long date short time string.
+        /// 2005年11月5日 14:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongDateShortTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("f", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long date short time string.
+        /// 2005年11月5日 14:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongDateShortTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("f", culture);
         }
         #endregion
 
-        #region LongDate
+        #region D 2005年11月5日
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long date string.
+        ///  2005年11月5日
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongDateString(this DateTime @this)
         {
             return @this.ToString("D", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long date string.
+        ///  2005年11月5日
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongDateString(this DateTime @this, string culture)
         {
             return @this.ToString("D", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long date string.
+        /// 2005年11月5日
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongDateString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("D", culture);
         }
         #endregion
 
-        #region LongTimeString
+        #region T 14:23:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long time string.
+        /// 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongTimeString(this DateTime @this)
         {
             return @this.ToString("T", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long time string.
+        /// 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("T", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a long time string.
+        /// 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToLongTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("T", culture);
         }
         #endregion
 
-        #region MonthDay
+        #region m/M 11月5日
         /// <summary>
-        ///     A DateTime extension method that converts this object to a month day string.
+        /// 11月5日
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToMonthDayString(this DateTime @this)
         {
             return @this.ToString("m", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a month day string.
+        /// 11月5日
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToMonthDayString(this DateTime @this, string culture)
         {
             return @this.ToString("m", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a month day string.
+        /// 11月5日
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToMonthDayString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("m", culture);
         }
         #endregion
 
-        #region RFC1123
+        #region r/R Sat, 05 Nov 2005 14:23:23 GMT
         /// <summary>
-        ///     A DateTime extension method that converts this object to a rfc 1123 string.
+        /// Sat, 05 Nov 2005 14:23:23 GMT
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The given data converted to a string.</returns>
@@ -190,7 +150,7 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a rfc 1123 string.
+        /// Sat, 05 Nov 2005 14:23:23 GMT
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
@@ -201,7 +161,7 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a rfc 1123 string.
+        /// Sat, 05 Nov 2005 14:23:23 GMT
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
@@ -212,111 +172,87 @@ namespace ExtensionMethods.Core
         }
         #endregion
 
-        #region ShortDateLongTime
+        #region G 2005-11-5 14:23:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date long time string.
+        ///  2005-11-5 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateLongTimeString(this DateTime @this)
         {
             return @this.ToString("G", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date long time string.
+        /// 2005-11-5 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateLongTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("G", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date long time string.
+        /// 2005-11-5 14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateLongTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("G", culture);
         }
         #endregion
 
-        #region ShortDate
+        #region d 2005-11-5
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date string.
+        /// 2005-11-5
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateString(this DateTime @this)
         {
             return @this.ToString("d", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date string.
+        /// 2005-11-5
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateString(this DateTime @this, string culture)
         {
             return @this.ToString("d", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date string.
+        /// 2005-11-5
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("d", culture);
         }
         #endregion
 
-        #region ShortDateTimeString
+        #region g 2005-11-5 14:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date time string.
+        /// 2005-11-5 14:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateTimeString(this DateTime @this)
         {
             return @this.ToString("g", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date time string.
+        /// 2005-11-5 14:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("g", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short date time string.
+        /// 2005-11-5 14:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToShortDateTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("g", culture);
         }
         #endregion
 
-        #region ShortTimeString
+        #region t 14:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short time string.
+        /// 14:23
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The given data converted to a string.</returns>
@@ -326,7 +262,7 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short time string.
+        /// 14:23
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
@@ -337,7 +273,7 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a short time string.
+        /// 14:23
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
@@ -348,43 +284,35 @@ namespace ExtensionMethods.Core
         }
         #endregion
 
-        #region SortableDateTime
+        #region s 2005-11-05T14:23:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to a sortable date time string.
+        /// 2005-11-05T14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToSortableDateTimeString(this DateTime @this)
         {
             return @this.ToString("s", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a sortable date time string.
+        /// 2005-11-05T14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToSortableDateTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("s", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a sortable date time string.
+        /// 2005-11-05T14:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToSortableDateTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("s", culture);
         }
         #endregion
 
-        #region UniversalSortableDateTime
+        #region u 2005-11-05 14:23:23Z
         /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable date time string.
+        /// 2005-11-05 14:23:23Z
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The given data converted to a string.</returns>
@@ -394,7 +322,7 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable date time string.
+        /// 2005-11-05 14:23:23Z
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
@@ -405,7 +333,7 @@ namespace ExtensionMethods.Core
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable date time string.
+        /// 2005-11-05 14:23:23Z
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="culture">The culture.</param>
@@ -416,68 +344,52 @@ namespace ExtensionMethods.Core
         }
         #endregion
 
-        #region UniversalSortableLongDateTime
+        #region U 2005年11月5日 6:23:23
         /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable long date time string.
+        /// 2005年11月5日 6:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToUniversalSortableLongDateTimeString(this DateTime @this)
         {
             return @this.ToString("U", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable long date time string.
+        /// 2005年11月5日 6:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToUniversalSortableLongDateTimeString(this DateTime @this, string culture)
         {
             return @this.ToString("U", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable long date time string.
+        /// 2005年11月5日 6:23:23
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToUniversalSortableLongDateTimeString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("U", culture);
         }
         #endregion
 
-        #region YearMonthString
+        #region Y/y 2005年11月
         /// <summary>
-        ///     A DateTime extension method that converts this object to a year month string.
+        /// 2005年11月
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToYearMonthString(this DateTime @this)
         {
             return @this.ToString("y", DateTimeFormatInfo.CurrentInfo);
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a year month string.
+        /// 2005年11月
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToYearMonthString(this DateTime @this, string culture)
         {
             return @this.ToString("y", new CultureInfo(culture));
         }
 
         /// <summary>
-        ///     A DateTime extension method that converts this object to a year month string.
+        /// 2005年11月
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
         public static string ToYearMonthString(this DateTime @this, CultureInfo culture)
         {
             return @this.ToString("y", culture);

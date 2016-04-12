@@ -74,6 +74,7 @@
     <Compile Include="Core\ObjectConvertExtensions.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
     <Compile Include="Core\StringExtensions.cs" />
+    <Compile Include="Core\TArrayExtensions.cs" />
     <Compile Include="Drawing\ImageExtensions.cs" />
     <Compile Include="IO\DirectoryInfoExtensions.cs" />
     <Compile Include="IO\DirectoryInfoIEnumerableExtensions.cs" />

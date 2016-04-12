@@ -71,11 +71,12 @@
     <Compile Include="Core\Int32Extensions.cs" />
     <Compile Include="Core\ObjectConvertExtensions.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
+    <Compile Include="Core\StringExtensions.cs" />
+    <Compile Include="Drawing\ImageExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Drawing\" />
     <Folder Include="IO\" />
     <Folder Include="Net\" />
     <Folder Include="Reflection\" />

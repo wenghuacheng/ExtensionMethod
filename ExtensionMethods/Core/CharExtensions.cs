@@ -9,190 +9,100 @@ namespace ExtensionMethods.Core
     public static class CharExtensions
     {
         /// <summary>
-        ///     Converts the value of a UTF-16 encoded surrogate pair into a Unicode code point.
+        ///  将指定的数字 Unicode 字符转换为双精度浮点数。.
         /// </summary>
-        /// <param name="highSurrogate">A high surrogate code unit (that is, a code unit ranging from U+D800 through U+DBFF).</param>
-        /// <param name="lowSurrogate">A low surrogate code unit (that is, a code unit ranging from U+DC00 through U+DFFF).</param>
-        /// <returns>The 21-bit Unicode code point represented by the  and  parameters.</returns>
-        public static Int32 ConvertToUtf32(this Char highSurrogate, Char lowSurrogate)
-        {
-            return Char.ConvertToUtf32(highSurrogate, lowSurrogate);
-        }
-
-        /// <summary>
-        ///     Converts the specified numeric Unicode character to a double-precision floating point number.
-        /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <returns>The numeric value of  if that character represents a number; otherwise, -1.0.</returns>
+        /// <param name="c">要转换的 Unicode 字符</param>
+        /// <returns>如果该字符表示数字，则为 c 的数值；否则为 -1.0</returns>
         public static Double GetNumericValue(this Char c)
         {
             return Char.GetNumericValue(c);
         }
 
-        /// <summary>
-        ///     Categorizes a specified Unicode character into a group identified by one of the  values.
-        /// </summary>
-        /// <param name="c">The Unicode character to categorize.</param>
-        /// <returns>A  value that identifies the group that contains .</returns>
-        public static UnicodeCategory GetUnicodeCategory(this Char c)
-        {
-            return Char.GetUnicodeCategory(c);
-        }
-
         #region 类型判别
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a control character.
+        /// 指示指定的 Unicode 字符是否属于控制字符类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a control character; otherwise, false.</returns>
         public static Boolean IsControl(this Char c)
         {
             return Char.IsControl(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a decimal digit.
+        /// 指示指定字符串中位于指定位置处的字符是否属于十进制数字类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a decimal digit; otherwise, false.</returns>
         public static Boolean IsDigit(this Char c)
         {
             return Char.IsDigit(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified  object is a high surrogate.
+        /// 指示是否将指定的 Unicode 字符分类为 Unicode 字母
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>
-        ///     true if the numeric value of the  parameter ranges from U+D800 through U+DBFF; otherwise, false.
-        /// </returns>
-        public static Boolean IsHighSurrogate(this Char c)
-        {
-            return Char.IsHighSurrogate(c);
-        }
-
-        /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a Unicode letter.
-        /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a letter; otherwise, false.</returns>
         public static Boolean IsLetter(this Char c)
         {
             return Char.IsLetter(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a letter or a decimal digit.
+        /// 指示将指定的 Unicode 字符分类为字母还是十进制数字。
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a letter or a decimal digit; otherwise, false.</returns>
         public static Boolean IsLetterOrDigit(this Char c)
         {
             return Char.IsLetterOrDigit(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a lowercase letter.
+        /// 指示指定的 Unicode 字符是否属于小写字母类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a lowercase letter; otherwise, false.</returns>
         public static Boolean IsLower(this Char c)
         {
             return Char.IsLower(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified  object is a low surrogate.
+        /// 指示指定的 Unicode 字符是否属于数字类别
         /// </summary>
-        /// <param name="c">The character to evaluate.</param>
-        /// <returns>
-        ///     true if the numeric value of the  parameter ranges from U+DC00 through U+DFFF; otherwise, false.
-        /// </returns>
-        public static Boolean IsLowSurrogate(this Char c)
-        {
-            return Char.IsLowSurrogate(c);
-        }
-
-        /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a number.
-        /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a number; otherwise, false.</returns>
         public static Boolean IsNumber(this Char c)
         {
             return Char.IsNumber(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a punctuation mark.
+        /// 指示指定的 Unicode 字符是否属于标点符号类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a punctuation mark; otherwise, false.</returns>
         public static Boolean IsPunctuation(this Char c)
         {
             return Char.IsPunctuation(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a separator character.
+        /// 指示指定的 Unicode 字符是否属于分隔符类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a separator character; otherwise, false.</returns>
         public static Boolean IsSeparator(this Char c)
         {
             return Char.IsSeparator(c);
         }
+        
 
         /// <summary>
-        ///     Indicates whether the specified character has a surrogate code unit.
+        /// 指示指定的 Unicode 字符是否属于符号字符类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is either a high surrogate or a low surrogate; otherwise, false.</returns>
-        public static Boolean IsSurrogate(this Char c)
-        {
-            return Char.IsSurrogate(c);
-        }
-
-        /// <summary>
-        ///     Indicates whether the two specified  objects form a surrogate pair.
-        /// </summary>
-        /// <param name="highSurrogate">The character to evaluate as the high surrogate of a surrogate pair.</param>
-        /// <param name="lowSurrogate">The character to evaluate as the low surrogate of a surrogate pair.</param>
-        /// <returns>
-        ///     true if the numeric value of the  parameter ranges from U+D800 through U+DBFF, and the numeric value of the
-        ///     parameter ranges from U+DC00 through U+DFFF; otherwise, false.
-        /// </returns>
-        public static Boolean IsSurrogatePair(this Char highSurrogate, Char lowSurrogate)
-        {
-            return Char.IsSurrogatePair(highSurrogate, lowSurrogate);
-        }
-
-        /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as a symbol character.
-        /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is a symbol character; otherwise, false.</returns>
         public static Boolean IsSymbol(this Char c)
         {
             return Char.IsSymbol(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as an uppercase letter.
+        /// 指示指定的 Unicode 字符是否属于大写字母类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is an uppercase letter; otherwise, false.</returns>
         public static Boolean IsUpper(this Char c)
         {
             return Char.IsUpper(c);
         }
 
         /// <summary>
-        ///     Indicates whether the specified Unicode character is categorized as white space.
+        /// 指示指定的 Unicode 字符是否属于空白类别
         /// </summary>
-        /// <param name="c">The Unicode character to evaluate.</param>
-        /// <returns>true if  is white space; otherwise, false.</returns>
         public static Boolean IsWhiteSpace(this Char c)
         {
             return Char.IsWhiteSpace(c);
@@ -201,142 +111,81 @@ namespace ExtensionMethods.Core
 
         #region To
         /// <summary>
-        ///     Converts the value of a specified Unicode character to its lowercase equivalent using specified culture-
-        ///     specific formatting information.
+        /// 使用指定的区域性特定格式设置信息将指定 Unicode 字符的值转换为它的小写等效项
         /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <param name="culture">An object that supplies culture-specific casing rules.</param>
-        /// <returns>
-        ///     The lowercase equivalent of , modified according to , or the unchanged value of , if  is already lowercase or
-        ///     not alphabetic.
-        /// </returns>
+        /// <param name="c">要转换的 Unicode 字符</param>
+        /// <param name="culture">提供区域性特定的大小写规则的对象，或 null</param>
         public static Char ToLower(this Char c, CultureInfo culture)
         {
             return Char.ToLower(c, culture);
         }
 
         /// <summary>
-        ///     Converts the value of a Unicode character to its lowercase equivalent.
+        /// 使用指定的区域性特定格式设置信息将指定 Unicode 字符的值转换为它的小写等效项
         /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <returns>
-        ///     The lowercase equivalent of , or the unchanged value of , if  is already lowercase or not alphabetic.
-        /// </returns>
+        /// <param name="c">要转换的 Unicode 字符</param>
         public static Char ToLower(this Char c)
         {
             return Char.ToLower(c);
         }
+              
 
         /// <summary>
-        ///     Converts the value of a Unicode character to its lowercase equivalent using the casing rules of the invariant
-        ///     culture.
+        /// 使用指定的区域性特定格式设置信息将指定 Unicode 字符的值转换为它的大写等效项
         /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <returns>
-        ///     The lowercase equivalent of the  parameter, or the unchanged value of , if  is already lowercase or not
-        ///     alphabetic.
-        /// </returns>
-        public static Char ToLowerInvariant(this Char c)
-        {
-            return Char.ToLowerInvariant(c);
-        }
-
-        /// <summary>
-        ///     Converts the specified Unicode character to its equivalent string representation.
-        /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <returns>The string representation of the value of .</returns>
-        public static String ToString(this Char c)
-        {
-            return Char.ToString(c);
-        }
-
-        /// <summary>
-        ///     Converts the value of a specified Unicode character to its uppercase equivalent using specified culture-
-        ///     specific formatting information.
-        /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <param name="culture">An object that supplies culture-specific casing rules.</param>
-        /// <returns>
-        ///     The uppercase equivalent of , modified according to , or the unchanged value of  if  is already uppercase,
-        ///     has no uppercase equivalent, or is not alphabetic.
-        /// </returns>
+        /// <param name="c">要转换的 Unicode 字符</param>
+        /// <param name="culture">提供区域性特定的大小写规则的对象，或 null</param>
         public static Char ToUpper(this Char c, CultureInfo culture)
         {
             return Char.ToUpper(c, culture);
         }
 
         /// <summary>
-        ///     Converts the value of a Unicode character to its uppercase equivalent.
+        /// 使用指定的区域性特定格式设置信息将指定 Unicode 字符的值转换为它的大写等效项
         /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <returns>
-        ///     The uppercase equivalent of , or the unchanged value of  if  is already uppercase, has no uppercase
-        ///     equivalent, or is not alphabetic.
-        /// </returns>
+        /// <param name="c">要转换的 Unicode 字符</param>
         public static Char ToUpper(this Char c)
         {
             return Char.ToUpper(c);
-        }
-
-        /// <summary>
-        ///     Converts the value of a Unicode character to its uppercase equivalent using the casing rules of the invariant
-        ///     culture.
-        /// </summary>
-        /// <param name="c">The Unicode character to convert.</param>
-        /// <returns>
-        ///     The uppercase equivalent of the  parameter, or the unchanged value of , if  is already uppercase or not
-        ///     alphabetic.
-        /// </returns>
-        public static Char ToUpperInvariant(this Char c)
-        {
-            return Char.ToUpperInvariant(c);
-        }
+        }              
         #endregion
 
         /// <summary>
-        ///     A T extension method to determines whether the object is not equal to any of the provided values.
+        /// 字符是否不在字符数组中
         /// </summary>
-        /// <param name="this">The object to be compared.</param>
-        /// <param name="values">The value list to compare with the object.</param>
-        /// <returns>true if the values list doesn't contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">字符</param>
+        /// <param name="values">字符数组</param>
         public static bool NotIn(this Char @this, params Char[] values)
         {
             return Array.IndexOf(values, @this) == -1;
         }
 
         /// <summary>
-        ///     A T extension method to determines whether the object is equal to any of the provided values.
+        ///  字符是否在字符数组中
         /// </summary>
-        /// <param name="this">The object to be compared.</param>
-        /// <param name="values">The value list to compare with the object.</param>
-        /// <returns>true if the values list contains the object, else false.</returns>
-        /// ###
-        /// <typeparam name="T">Generic type parameter.</typeparam>
+        /// <param name="this">字符</param>
+        /// <param name="values">字符数组</param>
         public static bool In(this Char @this, params Char[] values)
         {
             return Array.IndexOf(values, @this) != -1;
         }
 
         /// <summary>
-        ///     A char extension method that repeats a character the specified number of times.
+        /// 重复生成相同字符组成的字符串
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="repeatCount">Number of repeats.</param>
-        /// <returns>The repeated char.</returns>
+        /// <param name="this">字符</param>
+        /// <param name="repeatCount">重复次数</param>
         public static string Repeat(this char @this, int repeatCount)
         {
             return new string(@this, repeatCount);
         }
 
         /// <summary>
-        ///     Enumerates from @this to toCharacter.
+        /// 生成从@this到指定字符之间的所有字符数组
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="toCharacter">to character.</param>
-        /// <returns>An enumerator that allows foreach to be used to process @this to toCharacter.</returns>
+        /// <param name="this">起始/结束字符</param>
+        /// <param name="toCharacter">起始/结束字符</param>
+        /// <returns>会根据@this与toCharacter大小自动进行排序</returns>
         public static IEnumerable<char> To(this char @this, char toCharacter)
         {
             bool reverseRequired = (@this > toCharacter);

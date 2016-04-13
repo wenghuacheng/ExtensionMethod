@@ -385,10 +385,21 @@ namespace ExtensionMethods.Core
         /// <summary>
         /// 转为ASCII字节数组
         /// </summary>
-        public static byte[] ToByteArray(this string @this)
+        public static byte[] ToASCIIByteArray(this string @this)
         {
             Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
             return encoding.GetBytes(@this);
+        }
+
+        /// <summary>
+        /// 转为字节数组
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static byte[] GetBytes(this string str, Encoding encoding = null)
+        {
+            return (encoding ?? Encoding.Default).GetBytes(str);
         }
 
         /// <summary>

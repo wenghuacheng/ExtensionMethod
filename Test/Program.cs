@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ExtensionMethods.Core;
 using System.Runtime.Caching;
+using ExtensionMethods.Core;
 
 namespace Test
 {
@@ -11,6 +12,8 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            string s;
+            
         }
     }
 }

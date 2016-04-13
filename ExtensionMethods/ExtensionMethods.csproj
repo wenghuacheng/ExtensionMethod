@@ -90,6 +90,7 @@
     <Compile Include="Serialization\SerializeExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Thread\TaskExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />

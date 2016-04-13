@@ -172,5 +172,14 @@ namespace ExtensionMethods.Collections
         {
             return new SortedDictionary<TKey, TValue>(@this, comparer);
         }
+
+        /// <summary>
+        /// 克隆字典
+        /// </summary>
+        public static Dictionary<TKey, TValue> Clone<TKey, TValue>(this Dictionary<TKey, TValue> dict)
+        {
+            return dict.Select(t => t).ToDictionary(t => t.Key, t => t.Value);
+        }
+
     }
 }

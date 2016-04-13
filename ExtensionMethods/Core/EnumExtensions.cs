@@ -17,5 +17,27 @@ namespace ExtensionMethods.Core
             return attr.Description;
         }
 
+        /// <summary>
+        /// 转换成为枚举类型
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="strEnum"></param>
+        /// <returns></returns>
+        public static T ToEnum<T>(this string strEnum)
+        {
+            return (T)Enum.Parse(typeof(T), strEnum);
+        }
+
+        /// <summary>
+        /// 转换成为枚举类型
+        /// </summary>
+        /// <param name="strEnum"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static Enum ToEnum(this string strEnum, Type type)
+        {
+            return (Enum)Enum.Parse(type, strEnum);
+        }
+
     }
 }
